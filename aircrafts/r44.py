@@ -45,7 +45,6 @@ class R44:
         sum_weight = 0
         sum_lat_moment = 0
         sum_lon_moment = 0
-        print("Calculate com")
         for key, value in self._moments.items():
             if value.get_include():
                 sum_weight += value.get_weight()
@@ -112,6 +111,22 @@ class R44:
         :return:
         """
         return self._moments
+
+    def get_com(self) -> tuple:
+        """
+        Returns a dictionary of the center of mass information of the aircraft. Keys are: weight, longitudinal_arm,
+        longitudinal_moment, lateral_arm, lateral_moment
+        :return: A dictionary of the COM information
+        """
+        dct = {
+            "weight": self._weight,
+            "longitudinal_arm": self._longitudinal_arm,
+            "longitudinal_moment": self._longitudinal_moment,
+            "lateral_arm": self._lateral_arm,
+            "lateral_moment": self._lateral_moment
+        }
+        return dct
+
 
     def get_com_info(self) -> str:
         """

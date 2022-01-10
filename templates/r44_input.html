@@ -13,7 +13,7 @@
 {% for name, bool, ids, weight in lst %}
     <label for = {{name}}>{{name}}</label>
     {% if bool %}
-        <input type = "checkbox" id = {{name}} name = {{ids}}><br><br>
+        <input type = "checkbox" id = {{name}} name = {{ids}} checked><br><br>
     {% else %}
         <input type = "number" id = {{name}} name = {{ids}} value = {{weight}}><br><br>
     {% endif %}

@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect
 from aircrafts.r44 import R44
+from imageplot import make_image
+import os
+
 
 app = Flask(__name__)
-
+app.config['UPLOAD_FOLDER'] = "WBImages/R44/"
 
 @app.route('/')
 def hello():
@@ -30,7 +33,10 @@ def r44():
         print("Lon mom ", aircraft._longitudinal_moment)
         print("Lat mom ", aircraft._lateral_moment)
         print("Weight ", aircraft._weight)
-        return aircraft.get_com_info()
+        # return aircraft.get_com_info()
+        info = aircraft.get_com()
+        make_image(info)
+        return render_template("image_display.html", plot_image="WBImages/R44/output.jpg", info = info)
 
     else:
         aircraft = R44()
