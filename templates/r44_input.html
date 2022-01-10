@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>{{empty_name}}: {{empty_weight}} lbs</h3>
+
+<form action = r44 method = post>
+{% for name, bool, ids, weight in lst %}
+    <label for = {{name}}>{{name}}</label>
+    {% if bool %}
+        <input type = "checkbox" id = {{name}} name = {{ids}}><br><br>
+    {% else %}
+        <input type = "number" id = {{name}} name = {{ids}} value = {{weight}}><br><br>
+    {% endif %}
+
+
+{% endfor %}
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
